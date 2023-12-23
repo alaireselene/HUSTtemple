@@ -5,81 +5,118 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Thắp hương để qua môn</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.4.23/dist/full.min.css"
       rel="stylesheet"
+      type="text/css"
     />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/css/style.css" />
   </head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-W60E3193N9"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-W60E3193N9');
-</script>
-  <body id="background">
-    <div class="container">
-      
-      <div class="child phat">
-        <div class="title">
+  <body>
+    <div class="mx-auto">
+      <video autoplay muted loop class="anim-background">
+        <source src="assets/media/background.mp4" type="video/mp4" />
+      </video>
+      <div class="main-menu" id="main-menu">
+        <img src="assets/img/boka.jpg" alt="logo" class="logo mx-auto my-4" />
+        <h1 class="text-5xl text-center text-white font-bold menu-title">
+          Thắp hương để qua môn
+        </h1>
+        <button class="btn menu-button" onclick="my_modal_1.showModal()">
+          Bắt đầu
+        </button>
+        <dialog id="my_modal_1" class="modal">
+          <div class="modal-box">
+            <p class="py-4">Bạn là ai?</p>
+            <input
+              type="text"
+              placeholder="Một cái tên bạn muốn"
+              class="input w-full max-w-xs"
+              id="name-input"
+            />
+            <p class="py-4">Bạn thuộc trường/viện/khoa nào?</p>
+            <select class="select w-full max-w-xs" id="school-input">
+              <option disabled selected>Trường/viện/khoa</option>
+              <option>Khoa Toán-Tin</option>
+              <option>Trường Cơ khí</option>
+              <option>Trường Công nghệ thông tin & Truyền thông</option>
+              <option>Trường Điện - Điện tử</option>
+              <option>Trường Hóa & Khoa học sự sống</option>
+              <option>Trường Vật liệu</option>
+              <option>Viện Vật lý kỹ thuật</option>
+              <option>Viện Kinh tế và Quản lý</option>
+              <option>Viện Ngoại ngữ</option>
+              <option>Viện Sư phạm kỹ thuật</option>
+            </select>
+            <p class="py-4">
+              Bấm vào nút "CHOOSE FILE" để chọn hình ảnh quyển giáo trình đang
+              bán hành cho bạn
+            </p>
+            <input
+              type="file"
+              class="file-input file-input-bordered w-full max-w-xs"
+              id="file-input"
+            />
+            <p class="py-4">Lời ước nguyện thành tâm</p>
+            <input
+              type="text"
+              placeholder="Ước gì thì điền vào đây"
+              class="input w-full max-w-xs"
+              id="wish-input"
+            />
+            <div class="modal-action">
+              <form method="dialog">
+                <button class="btn" id="menu-process" href="#main-menu">
+                  Tôi thành tâm 🙏
+                </button>
+              </form>
+            </div>
+          </div>
+        </dialog>
+      </div>
+      <div class="ban-tho" id="ban-tho">
+        <div role="alert" class="alert alert-success">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="stroke-current shrink-0 h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
+          <span id="msg">Your purchase has been confirmed!</span>
         </div>
-        <img class="imganhphat" src="img_phat-removebg-preview.png" alt="" />
-        <img class="may" src="may-removebg-preview.png" alt="" />
-      </div>
-
-      <div class="child img--bantho">
         <img
-          class="quehuong"
-          src="nhang.png"
-          alt=""
+          src="assets/img/buddha-pepe.png"
+          alt="Phật pepe"
+          id="buddha-pepe"
         />
-        <img class="add" src="add_icon.png" alt="">
-        <input type="file" accept="image/jpeg, image/png, image/jpg" id="input-file">
-        <img class="temple" src="bkutemple.png" alt="" />
-      </div>
-
-      <div class="form">
-        <input
-          type="text"
-          placeholder="Nhập điều ước của thí chủ vào đây nè 🙏"
+        <div id="dragon">
+          <img src="/assets/css/dragon.gif" alt="Đây là con rồng đang bay" />
+        </div>
+        <img
+          src="assets/img/bktemple.png"
+          alt="Đây là cái bàn thờ"
+          id="cong-den-tho"
         />
-        <button class="btn">Thắp Hương</button>
-        <audio class="audio" controls>
-          <source src="tiengchuong.mp3" type="" />
+        <img
+          src="assets/img/nhang.png"
+          alt="nhang"
+          id="nhang"
+          onclick="my_modal_2.showModal()"
+        />
+        <img src="assets/img/boka.jpg" alt="Ảnh đặt vào" id="anh-dat-vao" />
+        <audio loop autoplay controls id="bell-ring">
+          <source src="assets/media/tiengchuong.mp3" type="audio/mp3" />
         </audio>
       </div>
     </div>
   </body>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-  const addImage = document.querySelector('.add');
-  const inputFile = document.querySelector('#input-file');
-
-  addImage.addEventListener('click', function() {
-    inputFile.click();
-  });
-  
-  inputFile.addEventListener('change', function() {
-    addImage.src = URL.createObjectURL(inputFile.files[0]);
-    console.log(inputFile.files);
-  });
-});
-    const btn = document.querySelector(".btn");
-    const quehuong = document.querySelector(".quehuong");
-    const phat = document.querySelector(".phat");
-    const audio = document.querySelector(".audio");
-    btn.addEventListener("click", () => {
-      quehuong.classList.add("thaphuong");
-      setTimeout(() => {
-        phat.classList.add("hienphat");
-        audio.play();
-      }, 1500);
-    });
-  </script>
+  <script src="assets/js/main.js"></script>
 </html>
